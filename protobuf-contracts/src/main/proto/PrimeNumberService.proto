@@ -1,0 +1,14 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+message PrimeNumberRequest {
+    string number = 1;
+}
+
+message PrimeNumberResponse {
+    string number = 1;
+}
+
+service PrimeNumberService {
+    rpc hello(PrimeNumberRequest) returns (stream PrimeNumberResponse);
+}
