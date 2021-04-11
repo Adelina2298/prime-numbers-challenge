@@ -8,12 +8,7 @@ public interface PrimeNumberRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string number = 1;</code>
+   * <code>int32 number = 1;</code>
    */
-  java.lang.String getNumber();
-  /**
-   * <code>string number = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNumberBytes();
+  int getNumber();
 }

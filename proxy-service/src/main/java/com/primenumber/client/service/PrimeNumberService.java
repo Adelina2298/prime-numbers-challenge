@@ -19,9 +19,9 @@ public class PrimeNumberService {
         this.blockingStub = blockingStub;
     }
 
-    public List<String> getPrimeNumbers(Integer number) {
+    public List<Integer> getPrimeNumbers(Integer number) {
         Iterator<PrimeNumberResponse> responseIterator;
-        PrimeNumberRequest request = PrimeNumberRequest.newBuilder().setNumber(number.toString()).build();
+        PrimeNumberRequest request = PrimeNumberRequest.newBuilder().setNumber(number).build();
         try {
             responseIterator = blockingStub.getPrimeNumbers(request);
             List<PrimeNumberResponse> responseList = ImmutableList.copyOf(responseIterator);

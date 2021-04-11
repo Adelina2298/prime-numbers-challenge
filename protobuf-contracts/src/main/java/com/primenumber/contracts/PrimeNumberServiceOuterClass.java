@@ -34,11 +34,11 @@ public final class PrimeNumberServiceOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\030PrimeNumberService.proto\"$\n\022PrimeNumbe" +
-      "rRequest\022\016\n\006number\030\001 \001(\t\"%\n\023PrimeNumberR" +
-      "esponse\022\016\n\006number\030\001 \001(\t2T\n\022PrimeNumberSe" +
+      "rRequest\022\016\n\006number\030\001 \001(\005\"%\n\023PrimeNumberR" +
+      "esponse\022\016\n\006number\030\001 \001(\0052T\n\022PrimeNumberSe" +
       "rvice\022>\n\017getPrimeNumbers\022\023.PrimeNumberRe" +
-      "quest\032\024.PrimeNumberResponse0\001B\036\n\032com.pri" +
-      "menumbers.contractsP\001b\006proto3"
+      "quest\032\024.PrimeNumberResponse0\001B\035\n\031com.pri" +
+      "menumber.contractsP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
