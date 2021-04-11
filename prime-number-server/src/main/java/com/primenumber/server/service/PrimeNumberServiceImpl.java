@@ -3,6 +3,7 @@ package com.primenumber.server.service;
 import com.primenumber.contracts.PrimeNumberRequest;
 import com.primenumber.contracts.PrimeNumberResponse;
 import com.primenumber.contracts.PrimeNumberServiceGrpc;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 import java.util.Arrays;
@@ -11,6 +12,11 @@ public class PrimeNumberServiceImpl extends PrimeNumberServiceGrpc.PrimeNumberSe
     @Override
     public void getPrimeNumbers(PrimeNumberRequest request, StreamObserver<PrimeNumberResponse> responseObserver) {
         int number = request.getNumber();
+        if (number < 0) {
+            Status status = Status.FAILED_PRECONDITION.withDescription("Value must be greater than or equal to 0");
+            responseObserver.onError(status.asRuntimeException());
+            return;
+        }
         boolean[] prime = getSieveOfEratosthenes(number);
         for (int i = 2; i <= number; i++) {
             if (prime[i]) {

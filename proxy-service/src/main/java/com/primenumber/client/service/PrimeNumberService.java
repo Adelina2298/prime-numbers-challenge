@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.primenumber.contracts.PrimeNumberRequest;
 import com.primenumber.contracts.PrimeNumberResponse;
 import com.primenumber.contracts.PrimeNumberServiceGrpc.PrimeNumberServiceBlockingStub;
-import io.grpc.StatusRuntimeException;
 import org.springframework.stereotype.Service;
 
 import java.util.Iterator;
@@ -20,14 +19,9 @@ public class PrimeNumberService {
     }
 
     public List<Integer> getPrimeNumbers(Integer number) {
-        Iterator<PrimeNumberResponse> responseIterator;
         PrimeNumberRequest request = PrimeNumberRequest.newBuilder().setNumber(number).build();
-        try {
-            responseIterator = blockingStub.getPrimeNumbers(request);
-            List<PrimeNumberResponse> responseList = ImmutableList.copyOf(responseIterator);
-            return responseList.stream().map(PrimeNumberResponse::getNumber).collect(Collectors.toList());
-        } catch (StatusRuntimeException ex) {
-            throw ex;
-        }
+        Iterator<PrimeNumberResponse> responseIterator = blockingStub.getPrimeNumbers(request);
+        List<PrimeNumberResponse> responseList = ImmutableList.copyOf(responseIterator);
+        return responseList.stream().map(PrimeNumberResponse::getNumber).collect(Collectors.toUnmodifiableList());
     }
 }
