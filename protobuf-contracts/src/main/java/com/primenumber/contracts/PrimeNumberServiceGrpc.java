@@ -1,17 +1,11 @@
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+package com.primenumber.contracts;
+
 import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 
 /**
  */
@@ -27,16 +21,16 @@ public final class PrimeNumberServiceGrpc {
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<PrimeNumberRequest,
-      PrimeNumberResponse> METHOD_HELLO =
+          PrimeNumberResponse> METHOD_GET_PRIME_NUMBERS =
       io.grpc.MethodDescriptor.<PrimeNumberRequest, PrimeNumberResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
           .setFullMethodName(generateFullMethodName(
-              "PrimeNumberService", "hello"))
+              "PrimeNumberService", "getPrimeNumbers"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               PrimeNumberRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               PrimeNumberResponse.getDefaultInstance()))
-          .setSchemaDescriptor(new PrimeNumberServiceMethodDescriptorSupplier("hello"))
+          .setSchemaDescriptor(new PrimeNumberServiceMethodDescriptorSupplier("getPrimeNumbers"))
           .build();
 
   /**
@@ -68,20 +62,20 @@ public final class PrimeNumberServiceGrpc {
 
     /**
      */
-    public void hello(PrimeNumberRequest request,
-        io.grpc.stub.StreamObserver<PrimeNumberResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_HELLO, responseObserver);
+    public void getPrimeNumbers(PrimeNumberRequest request,
+                                io.grpc.stub.StreamObserver<PrimeNumberResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_PRIME_NUMBERS, responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            METHOD_HELLO,
+            METHOD_GET_PRIME_NUMBERS,
             asyncServerStreamingCall(
               new MethodHandlers<
-                PrimeNumberRequest,
-                PrimeNumberResponse>(
-                  this, METHODID_HELLO)))
+                      PrimeNumberRequest,
+                      PrimeNumberResponse>(
+                  this, METHODID_GET_PRIME_NUMBERS)))
           .build();
     }
   }
@@ -106,10 +100,10 @@ public final class PrimeNumberServiceGrpc {
 
     /**
      */
-    public void hello(PrimeNumberRequest request,
-        io.grpc.stub.StreamObserver<PrimeNumberResponse> responseObserver) {
+    public void getPrimeNumbers(PrimeNumberRequest request,
+                                io.grpc.stub.StreamObserver<PrimeNumberResponse> responseObserver) {
       asyncServerStreamingCall(
-          getChannel().newCall(METHOD_HELLO, getCallOptions()), request, responseObserver);
+          getChannel().newCall(METHOD_GET_PRIME_NUMBERS, getCallOptions()), request, responseObserver);
     }
   }
 
@@ -133,10 +127,10 @@ public final class PrimeNumberServiceGrpc {
 
     /**
      */
-    public java.util.Iterator<PrimeNumberResponse> hello(
+    public java.util.Iterator<PrimeNumberResponse> getPrimeNumbers(
         PrimeNumberRequest request) {
       return blockingServerStreamingCall(
-          getChannel(), METHOD_HELLO, getCallOptions(), request);
+          getChannel(), METHOD_GET_PRIME_NUMBERS, getCallOptions(), request);
     }
   }
 
@@ -159,7 +153,7 @@ public final class PrimeNumberServiceGrpc {
     }
   }
 
-  private static final int METHODID_HELLO = 0;
+  private static final int METHODID_GET_PRIME_NUMBERS = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -178,8 +172,8 @@ public final class PrimeNumberServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_HELLO:
-          serviceImpl.hello((PrimeNumberRequest) request,
+        case METHODID_GET_PRIME_NUMBERS:
+          serviceImpl.getPrimeNumbers((PrimeNumberRequest) request,
               (io.grpc.stub.StreamObserver<PrimeNumberResponse>) responseObserver);
           break;
         default:
@@ -243,7 +237,7 @@ public final class PrimeNumberServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PrimeNumberServiceFileDescriptorSupplier())
-              .addMethod(METHOD_HELLO)
+              .addMethod(METHOD_GET_PRIME_NUMBERS)
               .build();
         }
       }

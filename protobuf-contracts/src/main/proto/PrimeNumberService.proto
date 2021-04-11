@@ -1,5 +1,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
+option java_package = "com.primenumber.contracts";
 
 message PrimeNumberRequest {
     string number = 1;
@@ -10,5 +11,5 @@ message PrimeNumberResponse {
 }
 
 service PrimeNumberService {
-    rpc hello(PrimeNumberRequest) returns (stream PrimeNumberResponse);
+    rpc getPrimeNumbers(PrimeNumberRequest) returns (stream PrimeNumberResponse);
 }
