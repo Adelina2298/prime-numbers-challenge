@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private PrimeNumberRequest() {
-    number_ = "";
   }
 
   @java.lang.Override
@@ -49,10 +48,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            number_ = s;
+            number_ = input.readInt32();
             break;
           }
           default: {
@@ -76,49 +74,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_descriptor;
+    return com.primenumber.contracts.PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_fieldAccessorTable
+    return com.primenumber.contracts.PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            PrimeNumberRequest.class, PrimeNumberRequest.Builder.class);
+            com.primenumber.contracts.PrimeNumberRequest.class, com.primenumber.contracts.PrimeNumberRequest.Builder.class);
   }
 
   public static final int NUMBER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object number_;
+  private int number_;
   /**
-   * <code>string number = 1;</code>
+   * <code>int32 number = 1;</code>
    */
-  public java.lang.String getNumber() {
-    java.lang.Object ref = number_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      number_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string number = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getNumberBytes() {
-    java.lang.Object ref = number_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      number_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getNumber() {
+    return number_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -135,8 +108,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNumberBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, number_);
+    if (number_ != 0) {
+      output.writeInt32(1, number_);
     }
     unknownFields.writeTo(output);
   }
@@ -147,8 +120,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNumberBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, number_);
+    if (number_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, number_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -160,13 +134,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof PrimeNumberRequest)) {
+    if (!(obj instanceof com.primenumber.contracts.PrimeNumberRequest)) {
       return super.equals(obj);
     }
-    PrimeNumberRequest other = (PrimeNumberRequest) obj;
+    com.primenumber.contracts.PrimeNumberRequest other = (com.primenumber.contracts.PrimeNumberRequest) obj;
 
-    if (!getNumber()
-        .equals(other.getNumber())) return false;
+    if (getNumber()
+        != other.getNumber()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -179,75 +153,75 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getNumber().hashCode();
+    hash = (53 * hash) + getNumber();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PrimeNumberRequest parseFrom(byte[] data)
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PrimeNumberRequest parseFrom(java.io.InputStream input)
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PrimeNumberRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.primenumber.contracts.PrimeNumberRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static PrimeNumberRequest parseDelimitedFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PrimeNumberRequest parseFrom(
+  public static com.primenumber.contracts.PrimeNumberRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -260,7 +234,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(PrimeNumberRequest prototype) {
+  public static Builder newBuilder(com.primenumber.contracts.PrimeNumberRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -281,21 +255,21 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:PrimeNumberRequest)
-          PrimeNumberRequestOrBuilder {
+      com.primenumber.contracts.PrimeNumberRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_descriptor;
+      return com.primenumber.contracts.PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_fieldAccessorTable
+      return com.primenumber.contracts.PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PrimeNumberRequest.class, PrimeNumberRequest.Builder.class);
+              com.primenumber.contracts.PrimeNumberRequest.class, com.primenumber.contracts.PrimeNumberRequest.Builder.class);
     }
 
-    // Construct using com.primenumbers.contracts.PrimeNumberRequest.newBuilder()
+    // Construct using com.primenumber.contracts.PrimeNumberRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -313,7 +287,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      number_ = "";
+      number_ = 0;
 
       return this;
     }
@@ -321,17 +295,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_descriptor;
+      return com.primenumber.contracts.PrimeNumberServiceOuterClass.internal_static_PrimeNumberRequest_descriptor;
     }
 
     @java.lang.Override
-    public PrimeNumberRequest getDefaultInstanceForType() {
-      return PrimeNumberRequest.getDefaultInstance();
+    public com.primenumber.contracts.PrimeNumberRequest getDefaultInstanceForType() {
+      return com.primenumber.contracts.PrimeNumberRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public PrimeNumberRequest build() {
-      PrimeNumberRequest result = buildPartial();
+    public com.primenumber.contracts.PrimeNumberRequest build() {
+      com.primenumber.contracts.PrimeNumberRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -339,8 +313,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public PrimeNumberRequest buildPartial() {
-      PrimeNumberRequest result = new PrimeNumberRequest(this);
+    public com.primenumber.contracts.PrimeNumberRequest buildPartial() {
+      com.primenumber.contracts.PrimeNumberRequest result = new com.primenumber.contracts.PrimeNumberRequest(this);
       result.number_ = number_;
       onBuilt();
       return result;
@@ -380,19 +354,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof PrimeNumberRequest) {
-        return mergeFrom((PrimeNumberRequest)other);
+      if (other instanceof com.primenumber.contracts.PrimeNumberRequest) {
+        return mergeFrom((com.primenumber.contracts.PrimeNumberRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(PrimeNumberRequest other) {
-      if (other == PrimeNumberRequest.getDefaultInstance()) return this;
-      if (!other.getNumber().isEmpty()) {
-        number_ = other.number_;
-        onChanged();
+    public Builder mergeFrom(com.primenumber.contracts.PrimeNumberRequest other) {
+      if (other == com.primenumber.contracts.PrimeNumberRequest.getDefaultInstance()) return this;
+      if (other.getNumber() != 0) {
+        setNumber(other.getNumber());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -409,11 +382,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      PrimeNumberRequest parsedMessage = null;
+      com.primenumber.contracts.PrimeNumberRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (PrimeNumberRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.primenumber.contracts.PrimeNumberRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -423,71 +396,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object number_ = "";
+    private int number_ ;
     /**
-     * <code>string number = 1;</code>
+     * <code>int32 number = 1;</code>
      */
-    public java.lang.String getNumber() {
-      java.lang.Object ref = number_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        number_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getNumber() {
+      return number_;
     }
     /**
-     * <code>string number = 1;</code>
+     * <code>int32 number = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getNumberBytes() {
-      java.lang.Object ref = number_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        number_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string number = 1;</code>
-     */
-    public Builder setNumber(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setNumber(int value) {
+      
       number_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string number = 1;</code>
+     * <code>int32 number = 1;</code>
      */
     public Builder clearNumber() {
       
-      number_ = getDefaultInstance().getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string number = 1;</code>
-     */
-    public Builder setNumberBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      number_ = value;
+      number_ = 0;
       onChanged();
       return this;
     }
@@ -508,12 +438,12 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:PrimeNumberRequest)
-  private static final PrimeNumberRequest DEFAULT_INSTANCE;
+  private static final com.primenumber.contracts.PrimeNumberRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new PrimeNumberRequest();
+    DEFAULT_INSTANCE = new com.primenumber.contracts.PrimeNumberRequest();
   }
 
-  public static PrimeNumberRequest getDefaultInstance() {
+  public static com.primenumber.contracts.PrimeNumberRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
@@ -538,7 +468,7 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
-  public PrimeNumberRequest getDefaultInstanceForType() {
+  public com.primenumber.contracts.PrimeNumberRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

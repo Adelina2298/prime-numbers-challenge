@@ -10,7 +10,17 @@ import java.util.Arrays;
 public class PrimeNumberServiceImpl extends PrimeNumberServiceGrpc.PrimeNumberServiceImplBase {
     @Override
     public void getPrimeNumbers(PrimeNumberRequest request, StreamObserver<PrimeNumberResponse> responseObserver) {
-        int number = Integer.parseInt(request.getNumber());
+        int number = request.getNumber();
+        boolean[] prime = getSieveOfEratosthenes(number);
+        for (int i = 2; i <= number; i++) {
+            if (prime[i]) {
+                responseObserver.onNext(PrimeNumberResponse.newBuilder().setNumber(i).build());
+            }
+        }
+        responseObserver.onCompleted();
+    }
+
+    private boolean[] getSieveOfEratosthenes(int number) {
         boolean[] prime = new boolean[number + 1];
         Arrays.fill(prime, true);
         for (int p = 2; p * p <= number; p++) {
@@ -20,16 +30,6 @@ public class PrimeNumberServiceImpl extends PrimeNumberServiceGrpc.PrimeNumberSe
                 }
             }
         }
-        for (int i = 2; i <= number; i++) {
-            if (prime[i]) {
-                responseObserver.onNext(PrimeNumberResponse.newBuilder().setNumber(String.valueOf(i)).build());
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        responseObserver.onCompleted();
+        return prime;
     }
 }

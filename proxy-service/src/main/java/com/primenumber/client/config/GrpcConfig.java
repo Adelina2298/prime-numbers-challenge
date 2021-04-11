@@ -15,7 +15,7 @@ public class GrpcConfig {
     }
 
     @Bean
-    public PrimeNumberServiceBlockingStub getRouteGuideStub() {
+    public PrimeNumberServiceBlockingStub getBlockingStub() {
         return PrimeNumberServiceGrpc.newBlockingStub(getManagedChannel());
     }
 }

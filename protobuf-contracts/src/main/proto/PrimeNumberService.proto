@@ -3,11 +3,11 @@ option java_multiple_files = true;
 option java_package = "com.primenumber.contracts";
 
 message PrimeNumberRequest {
-    string number = 1;
+    int32 number = 1;
 }
 
 message PrimeNumberResponse {
-    string number = 1;
+    int32 number = 1;
 }
 
 service PrimeNumberService {
