@@ -11,7 +11,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.validation.ConstraintViolationException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
@@ -21,7 +20,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         errorResponse.setStatus(status.value());
         errorResponse.setError(status.getReasonPhrase());
         errorResponse.setMessage(ex.getMessage());
-        errorResponse.setErrors(new ArrayList<>());
         return errorResponse;
     }
 

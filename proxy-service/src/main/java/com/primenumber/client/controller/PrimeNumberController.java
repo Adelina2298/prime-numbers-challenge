@@ -22,7 +22,7 @@ public class PrimeNumberController {
     }
 
     @GetMapping(value = "/prime/{number}")
-    public ResponseEntity<List<Integer>> getSupplierProduct(@NotNull @Min(0) @PathVariable Integer number) {
+    public ResponseEntity<List<Integer>> getPrimeNumbers(@NotNull @Min(0) @PathVariable Integer number) {
         List<Integer> response = primeNumberService.getPrimeNumbers(number);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

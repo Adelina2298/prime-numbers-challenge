@@ -8,7 +8,6 @@ public class ErrorResponse {
     private int status;
     private String error;
     private String message;
-    private List<String> errors;
 
     public LocalDateTime getTimestamp() {
         return timestamp;
@@ -41,14 +40,4 @@ public class ErrorResponse {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    public List<String> getErrors() {
-        return errors;
-    }
-
-    public void setErrors(List<String> errors) {
-        this.errors = errors;
-    }
-
-
 }
